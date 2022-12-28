@@ -19,7 +19,7 @@ export default function RegistrationScreen() {
   const [showPassword, setShowPassword] = useState(true);
 
   const onSubmit = () => {
-   console.log(`
+    console.log(`
     "name" ${name}, 
     "email "${email},
     "password " ${password}`);
@@ -41,6 +41,15 @@ export default function RegistrationScreen() {
       >
         <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : ""}>
           <View style={styles.form}>
+            <View style={styles.avatar}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.btnAddAvatar}
+                onPress={() => console.log("click")}
+              >
+                <Text style={styles.iconAddAvatar}>+</Text>
+              </TouchableOpacity>
+            </View>
             <Text style={styles.formTitle}>Registration</Text>
             <TextInput
               style={styles.input}
@@ -54,7 +63,7 @@ export default function RegistrationScreen() {
               value={email}
               onChangeText={(value) => setEmail(value)}
             />
-            <View style={{position:"relative"}}>
+            <View>
               <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.btnShowPassword}
@@ -101,7 +110,34 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 16,
+    backgroundColor: "#f6f6f6",
+    position: "absolute",
+    alignSelf: "center",
+    top: -60,
+  },
+  btnAddAvatar: {
+    position: "absolute",
+    left: 107,
+    top: 81,
+    width: 25,
+    height: 25,
+    borderRadius: 90,
+    borderColor: "#FF6C00",
+    borderWidth: 1,
+  },
+  iconAddAvatar: {
+    color: "#FF6C00",
+    textAlign: "center",
+    fontSize: 26,
+    fontWeight: "300",
+    lineHeight: 26,
+  },
   formTitle: {
+    fontFamily: "Test",
     fontSize: 30,
     textAlign: "center",
     marginTop: 92,
@@ -115,7 +151,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 8,
     marginHorizontal: 16,
-    padding:8
+    padding: 8,
   },
   btn: {
     backgroundColor: "#FF6C00",
@@ -135,9 +171,9 @@ const styles = StyleSheet.create({
     color: "#1B4371",
   },
   btnShowPassword: {
-    zIndex:25,
+    zIndex: 25,
     position: "absolute",
-    right:30,
+    right: 30,
     top: 30,
   },
 });
