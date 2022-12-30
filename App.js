@@ -15,7 +15,6 @@ export default function App() {
         await Font.loadAsync({
           "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
           "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-          Test: require("./assets/fonts/RubikBubbles-Regular.ttf"),
         });
       } catch (e) {
         console.warn(e);

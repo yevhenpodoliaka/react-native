@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     lineHeight: 26,
   },
   formTitle: {
-    fontFamily: "Test",
+    fontFamily: "Roboto-Medium",
     fontSize: 30,
     textAlign: "center",
     marginTop: 92,
