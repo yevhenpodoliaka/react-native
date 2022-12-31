@@ -50,7 +50,11 @@ export default function LoginScreen({ onChangeScreen }) {
                 style={styles.btnShowPassword}
                 onPress={() => setShowPassword(!showPassword)}
               >
-                <Text style={styles.btnShowPasswordTitle}>
+                <Text
+                  style={{
+                    color: "#1B4371",
+                  }}
+                >
                   {showPassword ? "show" : "hide"}
                 </Text>
               </TouchableOpacity>
@@ -67,7 +71,14 @@ export default function LoginScreen({ onChangeScreen }) {
               style={styles.btn}
               onPress={onSubmit}
             >
-              <Text style={styles.btnTitle}>Login</Text>
+              <Text
+                style={{
+                  color: "#ffffff",
+                  fontSize: 16,
+                }}
+              >
+                Login
+              </Text>
             </TouchableOpacity>
             <Text
               style={{ textAlign: "center", marginBottom: 111 }}
@@ -108,17 +119,10 @@ const styles = StyleSheet.create({
     height: 51,
     borderRadius: 100,
     marginTop: 43,
-    marginBottom: 80,
+    marginBottom: 16,
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 20,
-  },
-  btnTitle: {
-    color: "#ffffff",
-    fontSize: 16,
-  },
-  btnShowPasswordTitle: {
-    color: "#1B4371",
   },
   btnShowPassword: {
     zIndex: 25,
