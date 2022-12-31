@@ -4,15 +4,15 @@ import {
   Text,
   View,
   ImageBackground,
-  TextInput,
   TouchableOpacity,
   Platform,
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from "react-native";
+import Input from "../Components/Input";
 
-export default function LoginScreen() {
+export default function LoginScreen({ onChangeScreen }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(true);
@@ -38,11 +38,8 @@ export default function LoginScreen() {
       >
         <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : ""}>
           <View style={styles.form}>
-           
-                      <Text style={styles.formTitle}>Login</Text>
-                      
-            <TextInput
-              style={styles.input}
+            <Text style={styles.formTitle}>Login</Text>
+            <Input
               placeholder="email"
               value={email}
               onChangeText={(value) => setEmail(value)}
@@ -58,8 +55,7 @@ export default function LoginScreen() {
                 </Text>
               </TouchableOpacity>
 
-              <TextInput
-                style={styles.input}
+              <Input
                 placeholder="password"
                 secureTextEntry={showPassword}
                 value={password}
@@ -73,6 +69,12 @@ export default function LoginScreen() {
             >
               <Text style={styles.btnTitle}>Login</Text>
             </TouchableOpacity>
+            <Text
+              style={{ textAlign: "center", marginBottom: 111 }}
+              onPress={onChangeScreen}
+            >
+              Don't have an account? Register
+            </Text>
           </View>
         </KeyboardAvoidingView>
       </ImageBackground>
@@ -95,21 +97,11 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
   },
   formTitle: {
-    fontFamily: "Test",
+    fontFamily: "Roboto-Medium",
     fontSize: 30,
     textAlign: "center",
     marginTop: 32,
     marginBottom: 32,
-  },
-  input: {
-    marginTop: 16,
-    borderWidth: 1,
-    borderColor: "#BDBDBD",
-    backgroundColor: "#f6f6f6",
-    height: 50,
-    borderRadius: 8,
-    marginHorizontal: 16,
-    padding: 8,
   },
   btn: {
     backgroundColor: "#FF6C00",

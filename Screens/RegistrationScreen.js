@@ -4,15 +4,15 @@ import {
   Text,
   View,
   ImageBackground,
-  TextInput,
   TouchableOpacity,
   Platform,
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from "react-native";
+import Input from "../Components/Input";
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({ onChangeScreen }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,14 +51,12 @@ export default function RegistrationScreen() {
               </TouchableOpacity>
             </View>
             <Text style={styles.formTitle}>Registration</Text>
-            <TextInput
-              style={styles.input}
+            <Input
               placeholder="name"
               value={name}
               onChangeText={(value) => setName(value)}
             />
-            <TextInput
-              style={styles.input}
+            <Input
               placeholder="email"
               value={email}
               onChangeText={(value) => setEmail(value)}
@@ -74,8 +72,7 @@ export default function RegistrationScreen() {
                 </Text>
               </TouchableOpacity>
 
-              <TextInput
-                style={styles.input}
+              <Input
                 placeholder="password"
                 secureTextEntry={showPassword}
                 value={password}
@@ -89,6 +86,12 @@ export default function RegistrationScreen() {
             >
               <Text style={styles.btnTitle}>Register</Text>
             </TouchableOpacity>
+            <Text
+              style={{ textAlign: "center", marginBottom: 45 }}
+              onPress={onChangeScreen}
+            >
+              Already have an account? Sign in
+            </Text>
           </View>
         </KeyboardAvoidingView>
       </ImageBackground>
@@ -142,16 +145,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 92,
     marginBottom: 32,
-  },
-  input: {
-    marginTop: 16,
-    borderWidth: 1,
-    borderColor: "#BDBDBD",
-    backgroundColor: "#f6f6f6",
-    height: 50,
-    borderRadius: 8,
-    marginHorizontal: 16,
-    padding: 8,
   },
   btn: {
     backgroundColor: "#FF6C00",

@@ -7,6 +7,7 @@ import { View } from "react-native";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+  const [mainScreen, setMainScreen] = useState("login");
 
   useEffect(() => {
     async function prepare() {
@@ -37,7 +38,12 @@ export default function App() {
   }
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <RegistrationScreen />
+      {mainScreen === "login" && (
+        <LoginScreen onChangeScreen={() => setMainScreen("register")} />
+      )}
+      {mainScreen === "register" && (
+        <RegistrationScreen onChangeScreen={() => setMainScreen("login")} />
+      )}
     </View>
   );
 }
